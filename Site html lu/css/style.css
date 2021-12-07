@@ -1,84 +1,145 @@
 body{
-    background-color: darkblue;
-    font-family:sans-serif ;
-    color: #1c1c1c;
-    text-decoration: none;
-}
-
- .linkmenu,h1,h2,h3{
-    text-align: center;
-    font-family:sans-serif ;
-    color: #000000;
-    background-color: rgb(3, 3, 192);
-    max-width: 100%;
-    max-height: 100%;
-    
-}
-
-nav,h1 {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    text-decoration: none;
-    max-height: 100%;
-}
-
-nav > a {
-    text-decoration: none;
-    font-weight: 800;
-    font-size: 32px;
-    font-family: serif;
-}
-
-nav ul{
-    display: flex;
-    flex-direction: row;
-    list-style:none ;
-    align-items: center;
-    height: 100%;
-    padding: 10px 0;
-}
-
-nav ul li  {
-    width: calc(100%/5);
-    display: inline-block;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
     background-color: black;
-    border: 2px solid #fff;
-    margin-left: 100px;
 }
 
-nav ul li a{
-    display: inline-block;
-    padding: 10px 0;
-    width: 100%;
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    color: #fff;
     text-decoration: none;
-    color: #ffffff;
-    
+    transition: 0.3s;
+}
+
+a:hover{
+    opacity: 0.7;
+}
+
+.logo {
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+nav{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    font-family: system-ui,helvetica,Arial, Helvetica, sans-serif;
+    background: #23232e;
+    height: 8vh;
+}
+
+.nav-list{
+    list-style: none;
+    display: flex;
+}
+
+.nav-list li{
+    letter-spacing: 3px;
+    margin-left: 32px;
+} 
+
+/* Mobile-menu*/
+
+.mobile-menu{
+    display: none;
+    cursor: pointer;
+}
+
+.mobile-menu div{
+    width: 32px;
+    height: 2px;
+    background: #fff;
+    margin: 8px;
+    transition: 0.3s;
+}
+
+@media (max-width:999px){
+    body{
+        overflow-x: hidden;
+    }
+    .nav-list{
+      position: absolute;
+      top: 8vh;
+      right: 0;
+      width: 50vw;
+      height: 92vh;
+      background: #23232e;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      transform: translateX(100%); 
+      transition: transform 0.3s ease-in;
+      z-index: 9000;     
+    }
+    .nav-list li{
+        margin-left:0;
+        opacity: 0;
+    }
+    .mobile-menu{
+        display: block;
+    }
+}
+
+.nav-list.active{
+    transform: translateX(0);
+}
+
+@keyframes navLinkFade{
+    from{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.mobile-menu.active .line1{
+    transform: rotate(-45deg) translate(-8px, 8px);
+}
+
+.mobile-menu.active .line2{
+    opacity: 0;
+}
+
+.mobile-menu.active .line3{
+    transform: rotate(45deg) translate(-5px, -7px);
 }
 
 /*cabeçalho*/
 
-header {
+ h2,h3{
     display: flex;
-    flex-direction: column;
-    align-items:center;
-    background-color: rgb(11, 9, 148);
-    
-}    
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background-color:#23232e;
+    font-family: sans-serif;
+}
 
-section{
-    display:inline-block;
-    flex-direction: column;
-    align-items:center;
-    background-color: rgb(11, 9, 148);
+#Destaques h2,h3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background-color:#23232e;
+    font-family: sans-serif;
+}
+
+#Destaques img{
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
 }
 
 #rodapé{
-    color: #000000;
-    background-color: rgb(3, 3, 192);
+    color: #fff;
+    background-color: #23232e;
     max-width: 100%;
     max-height: 100%;
     font-family:sans-serif ;
@@ -105,10 +166,12 @@ button{
 
 #carouselExampleIndicators {
    width: 500px;
-   
-   justify-content: right;
-   align-items: right;
-   max-width: 900%;   
-   margin: auto;
+   justify-content: center;
+   align-items: center;
+   max-width: 900%;  
+   max-height: max-content; 
+   margin: auto;  
 }  
+
+
 
